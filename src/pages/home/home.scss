@@ -1,3 +1,11 @@
 page-home {
-
+    .btn--succes { 
+        background-color: #2EFE64;
+    }
+    .btn--disabled { background-color: #BDBDBD; }
+    .button-ios { 
+        color: #fff; 
+        font-weight: bold;
+        &.activated { background-color: #2EFE64; }
+    }
 }

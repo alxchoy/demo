@@ -1,13 +1,71 @@
 
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Vehicle Page</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>SOAT</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <h1>Vehicle Info</h1>
+  
+  <ion-card>
+    <ion-card-header class="card-header--border">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-9>1. Placa</ion-col>
+          <ion-col col-3 text-right class="edit">Editar</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-header>
+    <ion-card-content>
+      <p>QYR755</p>  
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header [ngClass]="{'card-header--border': vehicleInfo.vehicleType}">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-9>2. Tipo de vehículo</ion-col>
+          <ion-col col-3 text-right class="edit" (click)="goToVehicleList()">Editar</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-header>
+    <ion-card-content *ngIf="vehicleInfo.vehicleType">
+      <p>{{ vehicleInfo.vehicleType }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header [ngClass]="{'card-header--border': vehicleInfo.vehicleType}">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-9>3. VIN</ion-col>
+          <ion-col col-3 text-right class="edit">Editar</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-header>
+    <ion-card-content *ngIf="vehicleInfo.vehicleType">
+      <ion-list>
+        <ion-item *ngIf="!vehicleInfo.vinInfo">
+          <ion-label stacked>Nº VIN</ion-label>
+          <ion-input type="text" placeholder="LC6TXJ96G0007738" (keyup)="validateVin($event)" maxlength="16"></ion-input>
+        </ion-item>
+      </ion-list>
+      <p>{{ vehicleInfo.vinInfo }}</p>      
+      <ion-grid *ngIf="!vehicleInfo.vinInfo">
+        <ion-row>
+          <ion-col text-right>
+            <button ion-button text-right class="vin-continue" (click)="vinContinue()"
+            [disabled]="!isValidVin" [ngClass]="{'vin-continue__disabled': !isValidVin, 'vin-continue__enable': isValidVin}">
+              Continuar
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

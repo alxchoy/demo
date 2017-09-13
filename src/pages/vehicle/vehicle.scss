@@ -1,3 +1,19 @@
 page-vehicle {
-
+  .card-header-ios, .card-header-md { padding: 0px; }
+  .edit { font-size: 13px; line-height: 19px; color: #32db64; }
+  .card-header--border { border-bottom: 2px solid #B3B3B3; }
+  .card-content-ios, .card-content-md { padding: 10px !important; }
+  ion-item { padding-left: 0px !important; border: none !important; }
+  ion-input { border-bottom: 0.55px solid #c8c7cc; }
+  .vin-continue {
+    background: none;
+    padding: 0px;
+    height: auto;
+    &.activated { background-color: #fff !important; }
+    &__disabled { color: gray }
+    &__enable { color: #32db64 }
+  }
+  ion-card-content {
+    p { margin: 0px !important; }
+  }
 }

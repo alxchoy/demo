@@ -1,0 +1,19 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Lista de vehículos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-list>
+    <button ion-item *ngFor="let vehicle of vehicles" (click)="selectVehicleType(vehicle)">
+      {{ vehicle }}
+    </button>  
+  </ion-list>
+
+</ion-content>

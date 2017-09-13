@@ -7,12 +7,15 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { VehiclePage } from '../pages/vehicle/vehicle';
+import { ListVehicleTypePage } from '../pages/list-vehicle-type/list-vehicle-type';
+import { TypeVehicleProvider } from '../providers/type-vehicle/type-vehicle';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    VehiclePage
+    VehiclePage,
+    ListVehicleTypePage
   ],
   imports: [
     BrowserModule,
@@ -22,12 +25,14 @@ import { VehiclePage } from '../pages/vehicle/vehicle';
   entryComponents: [
     MyApp,
     HomePage,
-    VehiclePage
+    VehiclePage,
+    ListVehicleTypePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    TypeVehicleProvider
   ]
 })
 export class AppModule {}
